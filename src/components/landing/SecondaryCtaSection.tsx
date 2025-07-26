@@ -12,7 +12,7 @@ const SecondaryCtaSection = () => {
 
   return (
     // MODIFICADO: Cor de fundo
-    <section className="bg-[#002A5C] text-white py-12 px-1 text-center">
+    <section className="bg-gradient-to-r from-[#542102] via-[#000b19] to-[#000b19] relative sm-[#000b19] text-white py-12 px-1 text-center">
       <div className="container mx-auto max-w-3xl">
         {/* MODIFICADO: Cor do título e texto de destaque */}
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#FE6608]">

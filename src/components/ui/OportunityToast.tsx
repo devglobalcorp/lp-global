@@ -34,7 +34,7 @@ export function OportunityToast({ closeToast, onActionClick }: OportunityToastPr
         <div className="mt-6">
           <Button
             onClick={handleAction}
-            className="bg-[#FE6608] text-[#002A5C] font-bold py-3 px-8 rounded-full text-lg hover:bg-yellow-500 transition duration-300 shadow-lg"
+            className="bg-[#FE6608] text-[#000b19] font-bold py-3 px-8 rounded-full text-lg hover:bg-yellow-500 transition duration-300 shadow-lg"
           >
             QUERO SER PARTNER AGORA
           </Button>

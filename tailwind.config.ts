@@ -68,6 +68,9 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      backgroundImage: {
+        'banner-hero': "url('./bg-video.jpg')",
+      },
       keyframes: {
         "accordion-down": {
           from: {

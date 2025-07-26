@@ -17,7 +17,7 @@ const ProblemsSection = () => {
     <section className="py-16 px-1 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto max-w-6xl text-center">
         {/* MODIFICADO: Cor do título */}
-        <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-[#002A5C] dark:text-blue-400 leading-tight">
+        <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-[#000b19] dark:text-blue-400 leading-tight">
           Cansado de Limitações no Setor Solar?
         </h2>
         <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-12 max-w-3xl mx-auto">

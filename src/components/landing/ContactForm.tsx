@@ -136,7 +136,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="bg-white p-8 rounded-lg shadow-xl text-gray-900">
+    <div className="bg-white p-8 rounded-lg shadow-xl text-gray-900 mb-[5rem]">
       <h2 className="text-2xl font-bold mb-6 text-center">Quero ser Partner agora!</h2>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="mb-4">

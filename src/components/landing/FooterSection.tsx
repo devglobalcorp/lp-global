@@ -3,7 +3,7 @@
 const FooterSection = () => {
   return (
     // MODIFICADO: Cor de fundo
-    <footer className="bg-[#002A5C] text-white py-8 px-4 text-center">
+    <footer className="bg-gradient-to-r from-[#542102] via-[#542102] to-[#000b19] relative bg-[#000b19] text-white py-8 px-4 text-center">
       <div className="container mx-auto flex flex-col items-center">
         <div className="flex flex-col md:flex-row justify-center items-center gap-y-4 md:gap-x-6 mb-6">
           <img
