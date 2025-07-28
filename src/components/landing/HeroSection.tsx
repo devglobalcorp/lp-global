@@ -13,10 +13,9 @@ const HeroSection = () => {
   const formRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // A lógica do toast permanece a mesma
     const timer = setTimeout(() => {
       toast(
-        <OportunityToast onActionClick={scrollToForm} />,
+        <OportunityToast onActionClick={() => scrollToForm(formRef)} />,
         {
           autoClose: 30000,
           closeButton: true,
@@ -33,23 +32,25 @@ const HeroSection = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const handleScrollToForm = () => {
+    formRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="bg-gradient-to-r from-[#542102] via-[#000b19] to-[#000b19] relative sm-[#000b19] text-white">
-      {/* <img src="/logo.png" alt="Global Energia Solar Logo" className="max-w-[20rem] container absolute top-0 right-0 left-0 z-[9999]" /> */}
-
       <div className="mx-auto relative z-10">
 
-        {/* --- Container Principal com o novo estilo --- */}
+        {/* --- Container Principal (Banner): VISÍVEL APENAS EM TELAS GRANDES (md+) --- */}
         <div
-          className="w-full min-h-[45vw] bg-no-repeat bg-[length:100%_auto] bg-bottom flex flex-col justify-center items-center text-center p-4 md:bg-banner-hero bg-none bg-cover"
+          className="hidden w-full min-h-[45vw] bg-no-repeat bg-[length:100%_auto] bg-bottom md:flex flex-col justify-center items-center text-center bg-banner-hero bg-cover"
         >
-          {/* Conteúdo que será centralizado pelo flexbox */}
-          <div className="w-full max-w-4xl ">
-            {/* Vídeo */}
-            <div className="w-full md:max-w-[38vw] container  rounded-lg overflow-hidden shadow-xl mb-4">
+          {/* Conteúdo que será centralizado */}
+          <div className="w-full max-w-4xl">
+            {/* VÍDEO DO BANNER: Aparece junto com o banner, apenas em telas grandes */}
+            <div className="w-full md:max-w-[37vw] rounded-lg overflow-hidden shadow-xl mb-4 justify-self-center mr-[3vw]">
               <iframe
                 src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Video de Apresentação"
+                title="Video de Apresentação (Desktop)"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -61,23 +62,38 @@ const HeroSection = () => {
         </div>
         {/* --- Fim do Container --- */}
 
-        <div className="container mx-auto text-center my-10">
-          {/* Texto principal */}
-          <h1 className=" text-5xl lg:text-7xl font-bold leading-tight mb-4 text-[#FE6608]">
-            <span className=' mt-[6rem]'> Foque em gerar negócios</span>
+        <div className="container mx-auto text-center px-4">
+          {/* Texto principal (visível em todas as telas) */}
+          <h1 className="text-5xl lg:text-7xl font-bold leading-tight mb-4 text-[#FE6608]">
+            {/* Adicionado um padding-top para mobile para compensar a ausência do banner */}
+            <span className='block pt-12'>Foque em gerar negócios</span>
           </h1>
           <p className="text-2xl md:text-2xl opacity-90 mb-8">
             Sua parceria completa para lucrar com energia solar, sem se preocupar com projetos, equipamentos ou instalação.
           </p>
+
+          {/* VÍDEO PARA MOBILE: VISÍVEL APENAS EM TELAS PEQUENAS (<md) */}
+          <div className="block md:hidden w-full max-w-lg mx-auto rounded-lg overflow-hidden shadow-xl mb-8">
+            <iframe
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="Video de Apresentação (Mobile)"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full aspect-video"
+            ></iframe>
+          </div>
+
           <Button
-            onClick={scrollToForm}
+            onClick={handleScrollToForm}
             className="bg-[#FE6608] text-[#000b19] font-bold py-3 px-8 rounded-full text-lg hover:bg-orange-600 transition duration-300 shadow-lg"
           >
             QUERO SER PARTNER AGORA
           </Button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-20 container">
+        {/* O restante do conteúdo permanece o mesmo */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-20 container px-4">
           <div className="flex flex-col items-center p-4">
             <Users className="h-12 w-12 mb-4 text-[#FE6608]" />
             <h3 className="font-bold text-xl mb-2">Você Indica e Lucra</h3>
@@ -101,7 +117,7 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <div ref={formRef} className="grid grid-cols-1 lg:grid-cols-1 max-w-6xl container mx-auto gap-12 items-start">
+        <div ref={formRef} className="grid grid-cols-1 lg:grid-cols-1 max-w-6xl container mx-auto gap-12 items-start px-4">
           <ContactForm />
         </div>
       </div>
